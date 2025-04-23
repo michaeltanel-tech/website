@@ -1,25 +1,27 @@
 import React from "react";
 
-function Interests() {
-    return (
-        <div className="content">
-            <div>
-                <h3>Sports</h3>
-                <ul>
-                    <li>I am in a go-karting league and like to watch F1</li>
-                    <li>Playing and watching hockey. My favourite team is the Chicago Blackhawks</li>
-                    <li>Playing and watching golf</li>
-                </ul>
-            </div>
-            <div>
-                <h3>TV & Movies</h3>
-                <ul>
-                    <li>My favourite movies include: Goodfellas, A Night at the Roxbury, and The Departed</li>
-                    <li>My favourite TV shows include: The Sopranos, Entourage, and Succession</li>
-                </ul>
-            </div>
-        </div>
-    );
-}
-
-export default Interests;
+export const Interests = () => {
+  return (
+    <div className="content">
+      <div>
+        <h2>Sports</h2>
+        <ul>
+          <li>I race in a go-karting league and enjoy watching Formula 1</li>
+          <li>I love playing and watching hockey — my favorite team is the Chicago Blackhawks</li>
+          <li>I also enjoy both playing and watching golf</li>
+        </ul>
+      </div>
+      <div>
+        <h2>TV & Movies</h2>
+        <ul>
+          <li>
+            Some of my favorite movies are <i>Goodfellas</i>, <i>A Night at the Roxbury</i>, and <i>The Departed</i>
+          </li>
+          <li>
+            I'm a big fan of TV shows like <i>The Sopranos</i>, <i>Entourage</i>, and <i>Succession</i>
+          </li>
+        </ul>
+      </div>
+    </div>
+  );
+};

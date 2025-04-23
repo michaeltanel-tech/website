@@ -1,88 +1,96 @@
 body {
-    margin: 0;
-    font-family: "Arial", sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
 }
 
 .navbar {
-    background-color: #333;
-    padding: 1rem;
-    display: flex;
-    justify-content: center;
-    position: fixed; /* Fixes navbar at the top */
-    top: 0; /* Stays at the top of the viewport */
-    width: 100%; /* Full width of the screen */
-    z-index: 1000; /* Ensures navbar is above other content */
+  background-color: #4d9ebd;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  position: fixed; /* Fixes navbar at the top */
+  top: 0; /* Stays at the top of the viewport */
+  width: 100%; /* Full width of the screen */
+  z-index: 1000; /* Ensures navbar is above other content */
 }
 
 .navbar-menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 1rem;
 }
 
 .navbar-menu li {
-    display: inline;
+  display: inline;
 }
 
 .navbar-menu a {
-    color: #fff;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    border-radius: 4px;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 4px;
 }
 
 .navbar-menu a:hover,
 .navbar-menu a.active {
-    background-color: #007bff;
+  background-color: #0d3866;
 }
 
 .content {
-    padding: 2rem;
-    max-width: 80%;
-    margin: 2rem auto;
-    background-color: #fff;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    margin: 5rem auto 2rem auto; /* Adjust margin-top to account for fixed navbar height */
+  padding: 2rem;
+  max-width: 80%;
+  margin: 2rem auto;
+  background-color: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin: 5rem auto 2rem auto; /* Adjust margin-top to account for fixed navbar height */
 
-    h3,
-    h4,
-    h5 {
-        margin: 8px;
-    }
+  h3,
+  h4,
+  h5 {
+    margin: 8px;
+  }
+}
+
+.workTitle {
+  color: #0d3866;
 }
 
 @media (max-width: 768px) {
-    .navbar-menu {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
+  .navbar-menu {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
 
 .summary {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.25rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
 
-    img {
-        max-width: 300px;
-        padding-left: 10px;
-        padding-top: 10px;
-    }
+  img {
+    max-width: 300px;
+    padding-left: 10px;
+    padding-top: 10px;
+  }
 
-    li {
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
+  li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  div {
+    padding-left: 20px;
+  }
 }
 
 .content > div {
-    padding-bottom: 10px;
+  padding-bottom: 10px;
 }
