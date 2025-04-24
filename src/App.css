@@ -1,3 +1,8 @@
+.main {
+  margin: 0 auto; /* centers the whole container */
+  max-width: 90%;
+}
+
 body {
   margin: 0;
   font-family: "Arial", sans-serif;
@@ -43,7 +48,6 @@ body {
 
 .content {
   padding: 2rem;
-  max-width: 80%;
   margin: 2rem auto;
   background-color: #fff;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -57,10 +61,6 @@ body {
   }
 }
 
-.workTitle {
-  color: #0d3866;
-}
-
 @media (max-width: 768px) {
   .navbar-menu {
     flex-direction: column;
@@ -71,26 +71,59 @@ body {
 .summary {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.25rem;
 
-  img {
-    max-width: 300px;
-    padding-left: 10px;
-    padding-top: 10px;
-  }
-
-  li {
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-
-  div {
-    padding-left: 20px;
+  p {
+    margin-left: 10px;
   }
 }
 
-.content > div {
-  padding-bottom: 10px;
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+  font-family: Arial, sans-serif;
+}
+
+.image-gallery {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.image-card {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  background: #fff;
+}
+
+.image-card {
+  height: 400px;
+  overflow: hidden;
+}
+
+.image-card img {
+  object-fit: cover; /* trims the image to fill the box */
+  display: block;
+}
+
+.image-card:hover {
+  transform: scale(1.03);
+}
+
+.workTitle {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  color: #0d3866;
+}
+
+ul {
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
 }

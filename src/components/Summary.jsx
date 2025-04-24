@@ -1,14 +1,16 @@
 import React from "react";
+import { ImageModal } from "./ImageModal";
 
 export const Summary = () => {
   return (
     <div className="content summary">
-      <img src={require("../assets/headshot.jpg")} alt="headshot" />
-      <div className="pl-4">
+      <div className="image-gallery">
+        <ImageModal imageClass="image-card" src={require("../assets/headshot.jpg")} alt="headshot" />
+      </div>
+      <div className="summary-details">
         <p>
-          Hi, I'm Michael Tanel and welcome to my site! I bring over 6 years of experience as a software developer, driven by a passion for
-          crafting innovative software solutions to complex business challenges. I hold a Bachelor's degree in Computer Engineering from Queen's
-          University.
+          Hi, I'm Michael Tanel and welcome to my site! I bring over 6 years of experience as a software developer, driven by a passion for crafting
+          innovative software solutions to complex business challenges. I hold a Bachelor's degree in Computer Engineering from Queen's University.
         </p>
         <p>
           In my current role as a Team Lead and Software Developer, I focus on client services for a large-scale business banking application. My

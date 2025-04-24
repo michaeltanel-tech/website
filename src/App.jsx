@@ -1,4 +1,4 @@
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Navigate, Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./App.css";
 import { Education } from "./components/Education";
 import { Interests } from "./components/Interests";
@@ -17,12 +17,15 @@ export const App = () => {
     <ErrorBoundary>
       <Router basename={getBasename()}>
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Summary />} />
-          <Route path="/work-experience" element={<WorkExperience />} />
-          <Route path="/education" element={<Education />} />
-          <Route path="/Interests" element={<Interests />} />
-        </Routes>
+        <div className="main">
+          <Routes>
+            <Route path="/" element={<Summary />} />
+            <Route path="/work-experience" element={<WorkExperience />} />
+            <Route path="/education" element={<Education />} />
+            <Route path="/Interests" element={<Interests />} />
+            {process.env.NODE_ENV === "development" && <Route path="/my-website" element={<Navigate to="/" replace />} />}
+          </Routes>
+        </div>
       </Router>
     </ErrorBoundary>
   );
