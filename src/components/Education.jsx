@@ -27,7 +27,9 @@ export const Education = () => {
         company="May 2017 - April 2018"
         description={[
           "Between 3rd and 4th year, I spent 1 year working as a junior software developer for IFS.",
-          `More details can be found in the ${(<NavLink to="/work-experience">work section</NavLink>)}.`,
+          <>
+            More details can be found in the <NavLink to="/work-experience">work section</NavLink>.
+          </>,
         ]}
       />
       <DetailedSection
