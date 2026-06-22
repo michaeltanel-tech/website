@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./ImageModal.css";
 
 export const ImageModal = ({ src, alt, imageClass }) => {

@@ -1,18 +1,18 @@
-import React from "react";
-
 export const DetailedSection = ({ title, company, workPeriod, description }) => {
   return (
-    <>
-      <h2 className="workTitle">{title}</h2>
-      {company && <h4>{company}</h4>}
-      {workPeriod && <h5>{workPeriod}</h5>}
-      <div>
-        <ul>
-          {description?.map((line) => {
-            return <li>{line}</li>;
-          })}
-        </ul>
+    <div className="card">
+      <div className="card-header">
+        <h2 className="card-title">{title}</h2>
+        {company && <p className="card-company">{company}</p>}
+        {workPeriod && <p className="card-period">{workPeriod}</p>}
       </div>
-    </>
+      {description?.length > 0 && (
+        <ul>
+          {description.map((line, i) => (
+            <li key={i}>{line}</li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 };
