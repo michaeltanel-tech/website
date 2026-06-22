@@ -1,8 +1,18 @@
 import { useEffect, useState } from "react";
 import "./ImageModal.css";
 
-export const ImageModal = ({ src, alt, imageClass }) => {
+export const ImageModal = ({ src, largeSrc, alt, imageClass }) => {
   const [open, setOpen] = useState(false);
+  const modalSrc = largeSrc || src;
+
+  // Preload the modal-sized image into the browser cache so the modal
+  // opens instantly without a second network request.
+  useEffect(() => {
+    if (largeSrc) {
+      const img = new Image();
+      img.src = largeSrc;
+    }
+  }, [largeSrc]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -28,7 +38,7 @@ export const ImageModal = ({ src, alt, imageClass }) => {
 
       {open && (
         <div className="modal" onClick={() => setOpen(false)}>
-          <img src={src} alt={alt} className="modal-image" />
+          <img src={modalSrc} alt={alt} className="modal-image" />
         </div>
       )}
     </>

@@ -1,5 +1,6 @@
 import { ImageModal } from "./ImageModal";
 import headshotImg from "../assets/headshot.jpg";
+import headshotImgSmall from "../assets/headshot-small.jpg";
 
 export const Summary = () => {
   return (
@@ -8,7 +9,8 @@ export const Summary = () => {
         <div className="hero-photo-wrapper">
           <ImageModal
             imageClass="hero-photo"
-            src={headshotImg}
+            src={headshotImgSmall}
+            largeSrc={headshotImg}
             alt="Michael Tanel"
           />
         </div>
