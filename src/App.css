@@ -1,24 +1,73 @@
-.main {
-  margin: 0 auto; /* centers the whole container */
-  max-width: 90%;
+/* ─── Design Tokens ─────────────────────────────────────────────────────── */
+:root {
+  --color-bg: #0f1117;
+  --color-surface: #1a1d27;
+  --color-surface-2: #22263a;
+  --color-border: rgba(255, 255, 255, 0.07);
+  --color-primary: #6c8eff;
+  --color-primary-glow: rgba(108, 142, 255, 0.18);
+  --color-accent: #a78bfa;
+  --color-text: #e8eaf0;
+  --color-text-muted: #8892a4;
+  --color-text-faint: #525c6e;
+  --radius-card: 16px;
+  --radius-pill: 999px;
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.35);
+  --shadow-glow: 0 0 40px rgba(108, 142, 255, 0.12);
+  --transition: 0.2s ease;
+  --navbar-height: 68px;
+}
+
+/* ─── Reset / Base ──────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: "Arial", sans-serif;
-  background-color: #f4f4f9;
-  color: #333;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
 }
 
+/* ─── Layout ────────────────────────────────────────────────────────────── */
+.main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: calc(var(--navbar-height) + 2.5rem) 1.5rem 4rem;
+}
+
+/* ─── Navbar ────────────────────────────────────────────────────────────── */
 .navbar {
-  background-color: #4d9ebd;
-  padding: 1rem;
+  height: var(--navbar-height);
+  background: rgba(15, 17, 23, 0.75);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--color-border);
   display: flex;
-  justify-content: center;
-  position: fixed; /* Fixes navbar at the top */
-  top: 0; /* Stays at the top of the viewport */
-  width: 100%; /* Full width of the screen */
-  z-index: 1000; /* Ensures navbar is above other content */
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-text);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.navbar-brand span {
+  color: var(--color-primary);
 }
 
 .navbar-menu {
@@ -26,104 +75,231 @@ body {
   padding: 0;
   margin: 0;
   display: flex;
-  gap: 1rem;
-}
-
-.navbar-menu li {
-  display: inline;
+  gap: 0.25rem;
 }
 
 .navbar-menu a {
-  color: #fff;
+  color: var(--color-text-muted);
   text-decoration: none;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  border-radius: 4px;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: var(--radius-pill);
+  transition: color var(--transition), background var(--transition);
 }
 
-.navbar-menu a:hover,
+.navbar-menu a:hover {
+  color: var(--color-text);
+  background: rgba(255, 255, 255, 0.06);
+}
+
 .navbar-menu a.active {
-  background-color: #0d3866;
+  color: var(--color-primary);
+  background: var(--color-primary-glow);
 }
 
+/* ─── Page entrance animation ───────────────────────────────────────────── */
 .content {
-  padding: 2rem;
-  margin: 2rem auto;
-  background-color: #fff;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  margin: 5rem auto 2rem auto; /* Adjust margin-top to account for fixed navbar height */
+  animation: fadeUp 0.4s ease both;
+}
 
-  h3,
-  h4,
-  h5 {
-    margin: 8px;
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@media (max-width: 768px) {
-  .navbar-menu {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
+/* ─── Section label ─────────────────────────────────────────────────────── */
+.section-heading {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin: 0 0 1.75rem;
 }
 
-.summary {
+/* ─── Hero ──────────────────────────────────────────────────────────────── */
+.hero {
   display: flex;
-  flex-direction: row;
-
-  p {
-    margin-left: 10px;
-  }
+  align-items: center;
+  gap: 2.5rem;
+  padding: 2.5rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card), var(--shadow-glow);
+  margin-bottom: 1.5rem;
 }
 
-.profile-container {
-  display: flex;
-  flex-direction: column;
-  max-width: 1000px;
-  font-family: Arial, sans-serif;
+.hero-photo-wrapper {
+  flex-shrink: 0;
 }
 
-.image-gallery {
-  display: flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.image-card {
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  background: #fff;
-}
-
-.image-card {
-  height: 400px;
-  overflow: hidden;
-}
-
-.image-card img {
-  object-fit: cover; /* trims the image to fill the box */
+.hero-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--color-primary);
+  box-shadow: 0 0 0 6px var(--color-primary-glow);
   display: block;
 }
 
-.image-card:hover {
-  transform: scale(1.03);
+.hero-text h1 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+  letter-spacing: -0.02em;
 }
 
-.workTitle {
+.hero-role {
+  font-size: 1rem;
+  color: var(--color-accent);
+  font-weight: 500;
+  margin: 0 0 1rem;
+}
+
+.hero-text p {
+  margin: 0 0 0.75rem;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.hero-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* ─── Cards ─────────────────────────────────────────────────────────────── */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-card);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.card:hover {
+  border-color: rgba(108, 142, 255, 0.25);
+  box-shadow: var(--shadow-card), 0 0 24px rgba(108, 142, 255, 0.08);
+}
+
+.card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-bottom: 1rem;
+}
+
+.card-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.card-company {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  margin: 0;
+}
+
+.card-period {
+  font-size: 0.8rem;
+  color: var(--color-text-faint);
+  margin: 0;
+}
+
+.card ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.card ul li {
+  position: relative;
+  padding-left: 1.1rem;
   margin-bottom: 0.5rem;
-  font-size: 1.5rem;
-  color: #0d3866;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
 }
 
-ul {
-  padding-left: 1.5rem;
+.card ul li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: var(--color-text-faint);
 }
 
-li {
-  margin-bottom: 0.5rem;
-  line-height: 1.6;
+/* ─── Interests grid ────────────────────────────────────────────────────── */
+.interests-card-text {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* ─── Image gallery ─────────────────────────────────────────────────────── */
+.image-gallery {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.gallery-img {
+  height: 260px;
+  width: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.image-card-wrapper {
+  cursor: pointer;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  transition: transform var(--transition), box-shadow var(--transition);
+  line-height: 0;
+  border-radius: 14px;
+  display: inline-block;
+}
+
+.image-card-wrapper:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
+}
+
+/* ─── Responsive ────────────────────────────────────────────────────────── */
+@media (max-width: 700px) {
+  .navbar {
+    padding: 0 1.25rem;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .interests-card-text {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar-menu a {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.82rem;
+  }
 }

@@ -2,31 +2,32 @@ import { NavLink } from "react-router-dom";
 
 export const Navbar = () => {
   return (
-    <div>
-      <nav className="navbar">
-        <ul className="navbar-menu">
-          <li>
-            <NavLink to="/" activeClassName="active">
-              Summary
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/work-experience" activeClassName="active">
-              Work Experience
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/education" activeClassName="active">
-              Education
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/Interests" activeClassName="active">
-              Interests
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
-    </div>
+    <nav className="navbar">
+      <NavLink to="/" className="navbar-brand">
+        Michael <span>Tanel</span>
+      </NavLink>
+      <ul className="navbar-menu">
+        <li>
+          <NavLink to="/" end className={({ isActive }) => (isActive ? "active" : "")}>
+            About
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/work-experience" className={({ isActive }) => (isActive ? "active" : "")}>
+            Experience
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/education" className={({ isActive }) => (isActive ? "active" : "")}>
+            Education
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/interests" className={({ isActive }) => (isActive ? "active" : "")}>
+            Interests
+          </NavLink>
+        </li>
+      </ul>
+    </nav>
   );
 };

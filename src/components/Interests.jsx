@@ -1,32 +1,30 @@
-import React from "react";
 import { DetailedSection } from "./DetailedSection";
 import { ImageModal } from "./ImageModal";
+import goKart1 from "../assets/gokart1.jpeg";
+import goKart2 from "../assets/gokart2.jpg";
 
 export const Interests = () => {
   return (
-    <div className="content profile-container">
+    <div className="content">
+      <p className="section-heading">Interests</p>
       <div className="image-gallery">
-        <ImageModal imageClass="image-card" src={require("../assets/go kart 1.jpeg")} alt="gokart1" />
-        <ImageModal imageClass="image-card" src={require("../assets/go kart 2.jpg")} alt="gokart2" />
+        <ImageModal imageClass="gallery-img" src={goKart1} alt="Go karting" />
+        <ImageModal imageClass="gallery-img" src={goKart2} alt="Go karting 2" />
       </div>
-      <div>
+      <div className="interests-card-text">
         <DetailedSection
           title="Sports"
           description={[
-            "I race in a go-karting league and enjoy watching Formula 1",
-            "I love playing and watching hockey — my favorite team is the Chicago Blackhawks",
-            "I also enjoy both playing and watching golf",
+            "Race in a competitive go-karting league and love watching Formula 1.",
+            "Avid hockey fan — favorite team is the Chicago Blackhawks.",
+            "Enjoy both playing and watching golf.",
           ]}
         />
         <DetailedSection
           title="TV & Movies"
           description={[
-            <>
-              Some of my favorite movies are <i>Goodfellas</i>, <i>A Night at the Roxbury</i>, and <i>The Departed</i>.
-            </>,
-            <>
-              I'm a big fan of TV shows like <i>The Sopranos</i>, <i>Entourage</i>, and <i>Succession</i>.
-            </>,
+            <> Favorite films: <i>Goodfellas</i>, <i>A Night at the Roxbury</i>, and <i>The Departed</i>.</>,
+            <> Favorite shows: <i>The Sopranos</i>, <i>Entourage</i>, and <i>Succession</i>.</>,
           ]}
         />
       </div>

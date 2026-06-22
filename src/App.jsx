@@ -1,4 +1,4 @@
-import { Navigate, Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Route, HashRouter as Router, Routes } from "react-router-dom";
 import "./App.css";
 import { Education } from "./components/Education";
 import { Interests } from "./components/Interests";
@@ -7,23 +7,17 @@ import { WorkExperience } from "./components/WorkExperience";
 import ErrorBoundary from "./ErrorBoundary";
 import { Navbar } from "./Navbar";
 
-// Get the basename dynamically from environment
-const getBasename = () => {
-  return process.env.NODE_ENV === "development" ? "/" : "/my-website";
-};
-
 export const App = () => {
   return (
     <ErrorBoundary>
-      <Router basename={getBasename()}>
+      <Router>
         <Navbar />
         <div className="main">
           <Routes>
             <Route path="/" element={<Summary />} />
             <Route path="/work-experience" element={<WorkExperience />} />
             <Route path="/education" element={<Education />} />
-            <Route path="/Interests" element={<Interests />} />
-            {process.env.NODE_ENV === "development" && <Route path="/my-website" element={<Navigate to="/" replace />} />}
+            <Route path="/interests" element={<Interests />} />
           </Routes>
         </div>
       </Router>
